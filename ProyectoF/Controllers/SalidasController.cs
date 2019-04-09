@@ -14,6 +14,42 @@ namespace ProyectoF.Controllers
     {
         private finalDBCONTEXT db = new finalDBCONTEXT();
 
+        public ActionResult Activo(string SearchString)
+        {
+            var query = (from a in db.Empleados
+                         where a.Estatus == "Activo"
+                         select a);
+
+            return View(query.ToList());
+
+            /*var hola = from k in db.Nominas
+                       select k;
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                hola = hola.Where(k => k.Mes.Contains(SearchString));
+
+            }
+            var query = (from a in db.Empleados
+                         where a.Estatus == "Activo"
+                         select a);
+            ViewBag.TotalSalario = query.Sum(a => a.Salario);
+            ViewBag.TotalEmpleados = query.Count();
+
+
+
+            db.SaveChanges();
+            return View(hola.ToList());*/
+        }
+
+        public ActionResult Inactivo()
+        {
+            var query = (from a in db.Empleados
+                         where a.Estatus == "Inanctivo"
+                         select a);
+
+            return View(query.ToList());
+        }
+
         // GET: Salidas
         public ActionResult Index()
         {

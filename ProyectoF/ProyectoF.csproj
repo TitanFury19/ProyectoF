@@ -166,6 +166,18 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="imagenes\1426-f.jpg" />
+    <Content Include="imagenes\201515.jpg" />
+    <Content Include="imagenes\architecture.jpg" />
+    <Content Include="imagenes\business-3167295_1920.jpg" />
+    <Content Include="imagenes\conference-room-768441_1920.jpg" />
+    <Content Include="imagenes\digital-marketing-1433427_1920.jpg" />
+    <Content Include="imagenes\fgfg.png" />
+    <Content Include="imagenes\hjb.png" />
+    <Content Include="imagenes\hjyhb.png" />
+    <Content Include="imagenes\maldives.jpg" />
+    <Content Include="imagenes\manhattan.jpg" />
+    <Content Include="Resources\hjyhb.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -233,6 +245,9 @@
     <Content Include="Views\Salidas\Details.cshtml" />
     <Content Include="Views\Salidas\Edit.cshtml" />
     <Content Include="Views\Salidas\Index.cshtml" />
+    <Content Include="Views\Nominas\Totalizar.cshtml" />
+    <Content Include="Views\Salidas\Activo.cshtml" />
+    <Content Include="Views\Salidas\Inactivo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

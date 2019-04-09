@@ -14,11 +14,43 @@ namespace ProyectoF.Controllers
     {
         private finalDBCONTEXT db = new finalDBCONTEXT();
 
-        // GET: Nominas
-        public ActionResult Index()
+
+        public ActionResult Totalizar()
         {
-            var nominas = db.Nominas.Include(n => n.Empleado);
-            return View(nominas.ToList());
+            var query = (from a in db.Empleados
+                         where a.Estatus == "Activo"
+                         select a);
+            ViewBag.TotalSalario = query.Sum(a => a.Salario);
+            ViewBag.TotalEmpleados = query.Count();
+
+
+
+            db.SaveChanges();
+            return View();
+        }
+
+        // GET: Nominas
+        public ActionResult Index(string SearchString)
+        {
+            //var nominas = db.Nominas.Include(n => n.Empleado);
+
+            var hola = from k in db.Nominas 
+                       select k;
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                hola = hola.Where(k => k.Mes.Contains(SearchString));
+
+            }
+            var query = (from a in db.Empleados
+                         where a.Estatus == "Activo"
+                         select a);
+            ViewBag.TotalSalario = query.Sum(a => a.Salario);
+            ViewBag.TotalEmpleados = query.Count();
+
+
+
+            db.SaveChanges();
+            return View(hola.ToList());
         }
 
         // GET: Nominas/Details/5

@@ -4,7 +4,13 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Calculo de Nomina</h2>
+<center><h2>Calculo de Nomina</h2></center>
+<p>
+    <form action method="post">
+        Buscar por mes: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </form>
+</p>
 
 
 <table class="table table-bordered" style="color:blue">
@@ -27,30 +33,37 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Empleado.Nombre)
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Empleado.Nombre)
+            </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.Dia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Mes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Año)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Monto_Total)
-        </td>
-        @*<td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>*@
-    </tr>
-}
+            <td>
+                @Html.DisplayFor(modelItem => item.Dia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Año)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Monto_Total)
+            </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+                </td>*@
+        </tr>
+    }
 
 </table>
+
+    <p>
+        Total de la nomina es: @ViewBag.TotalSalario <br />
+        Total de empleados Activos es: @ViewBag.TotalEmpleados
+    </p>
+
